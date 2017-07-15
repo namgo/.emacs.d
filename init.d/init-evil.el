@@ -10,5 +10,6 @@
   (evil-leader/set-key
    "b" 'switch-to-buffer
    "w" 'save-buffer
-   "e" 'eshell))
+   "e" 'eshell
+   "g" 'magit-status))
 (provide 'init-evil)
