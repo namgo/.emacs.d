@@ -8,7 +8,9 @@
 (add-to-list 'load-path "~/.emacs.d/init.d/")
 (require 'init-evil)
 (require 'init-helm)
+(require 'init-python)
 (require 'init-completion)	 
+(require 'init-ui)
 (use-package magit)
 (setq auto-save-default nil)
 (setq make-backup-files nil)
@@ -18,7 +20,7 @@
 (scroll-bar-mode -1) ;; no scrollbar
 ;; turn off sctartup screen
 (column-number-mode 1)                          ;; Gives column and line
-(line-number-mode 1) ;; number in mode line
+(global-linum-mode 1)
 (setq inhibit-splash-screen t)
 (setq inhibit-startup-message t)
 (setq line-number-display-limit-width 2000000) ;; prevents ?? for line numbers
