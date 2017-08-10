@@ -11,6 +11,7 @@
 (require 'init-python)
 (require 'init-completion)	 
 (require 'init-ui)
+(require 'init-web)
 (use-package magit)
 (setq auto-save-default nil)
 (setq make-backup-files nil)

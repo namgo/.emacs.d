@@ -6,7 +6,8 @@
 	     :init
 	     (global-company-mode 1)
 	     :config
-	     (setq company-idle-delay 0.3))
+	     (setq company-dabbrev-downcase 0)
+	     (setq company-idle-delay 0))
 (use-package company-quickhelp
   :config (company-quickhelp-mode 1))
 (use-package company-irony)

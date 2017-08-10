@@ -7,8 +7,13 @@
   (setq helm-M-x-fuzzy-match t)
   (define-key helm-find-files-map "\t" 'helm-execute-persistent-action)
   (evil-leader/set-key
-    "ff" 'helm-find-files
+    "f" 'helm-find-files
     "x" 'helm-M-x
-    "a" 'helm-ag))
+    "a" 'helm-ag
+    "y" 'helm-show-kill-ring))
+(global-set-key (kbd "M-x") 'helm-M-x)
+(global-set-key (kbd "C-x b") 'helm-mini)
+(global-set-key (kbd "M-y") 'helm-show-kill-ring)
+
 (use-package helm-ag)
 (provide 'init-helm)
