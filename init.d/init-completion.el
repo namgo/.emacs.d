@@ -17,3 +17,9 @@
   (add-to-list 'company-backends 'company-c-headers))
 (electric-pair-mode)
 (provide 'init-completion)
+
+(use-package company-tern
+  :init
+  (add-to-list 'company-backends 'company-tern)
+  (setq company-tooltip-align-annotations t)
+  )

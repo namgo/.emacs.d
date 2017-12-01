@@ -3,7 +3,7 @@
   :config
   (helm-mode 1)
   (helm-adaptive-mode 1)
-  (helm-push-mark-mode 1)
+  ;;(helm-push-mark-mode 1)
   (setq helm-M-x-fuzzy-match t)
   (define-key helm-find-files-map "\t" 'helm-execute-persistent-action)
   (evil-leader/set-key

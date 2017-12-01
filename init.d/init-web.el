@@ -20,4 +20,6 @@
     (electric-pair-local-mode 0)
     (message "TRUE")))
 (add-hook 'web-mode-hook 'django-html-hook)
+(add-hook 'js-mode-hook (lambda () (tern-mode t)))
+(add-hook 'js2-mode-hook (lambda () (tern-mode t)))
 (provide 'init-web)
