@@ -28,3 +28,4 @@
 (setq line-number-display-limit-width 2000000) ;; prevents ?? for line numbers
 (setq custom-file "~/.emacs.d/custom.el")
 (load custom-file)
+(add-to-list 'auto-mode-alist '("\\.jsx\\'" . js-jsx-mode))
