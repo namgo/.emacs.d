@@ -22,4 +22,15 @@
 (add-hook 'web-mode-hook 'django-html-hook)
 (add-hook 'js-mode-hook (lambda () (tern-mode t)))
 (add-hook 'js2-mode-hook (lambda () (tern-mode t)))
+(use-package emmet-mode
+  :ensure t
+  :config
+  (add-hook 'sgml-mode-hook 'emmet-mode) ;; Auto-start on any markup modes
+  (add-hook 'web-mode-hook 'emmet-mode) ;; Auto-start on any markup modes
+  (add-hook 'css-mode-hook  'emmet-mode) ;; enable Emmet's css abbreviation.
+ )
+(use-package npm-mode
+  :ensure t
+  :config
+  (add-hook 'js-mode-hook 'npm-mode))
 (provide 'init-web)

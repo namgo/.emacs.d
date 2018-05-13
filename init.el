@@ -29,3 +29,16 @@
 (setq custom-file "~/.emacs.d/custom.el")
 (load custom-file)
 (add-to-list 'auto-mode-alist '("\\.jsx\\'" . js-jsx-mode))
+;;(setq frame-resize-pixelwise t)
+(defun set-exec-path-from-shell-PATH ()
+  (let ((path-from-shell (replace-regexp-in-string
+                          "[ \t\n]*$"
+                          ""
+                          (shell-command-to-string "$SHELL --login -i -c 'echo $PATH'"))))
+    (setenv "PATH" path-from-shell)
+    (setq eshell-path-env path-from-shell) ; for eshell users
+    (setq exec-path (split-string path-from-shell path-separator))))
+(setenv "PATH" (concat (getenv "PATH") ":/usr/local/bin"))
+    (setq exec-path (append exec-path '("/usr/local/bin")))
+
+(when window-system (set-exec-path-from-shell-PATH))
