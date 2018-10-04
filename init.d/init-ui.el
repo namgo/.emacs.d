@@ -13,4 +13,6 @@ scroll-preserve-screen-position 1)
   :bind ("C-," . ace-select-window)
   ("C-<" . ace-delete-window)
 )
+(use-package color-theme-solarized
+  :config (color-theme-solarized))
 (provide 'init-ui)

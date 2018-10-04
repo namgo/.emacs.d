@@ -9,6 +9,9 @@
 (add-to-list 'auto-mode-alist '("\\.djhtml\\'" . web-mode))
 (add-to-list 'auto-mode-alist '("\\.php\\'" . web-mode))
 (add-to-list 'auto-mode-alist '("\\.html\\'" . web-mode)))
+(use-package js2-mode
+  :config
+(add-to-list 'auto-mode-alist '("\\.js\\'" . js-jsx-mode)))
 
 (setq web-mode-engines-alist
       '(("php"    . "\\.phtml\\'")
@@ -23,6 +26,10 @@
 (add-hook 'web-mode-hook 'django-html-hook)
 (add-hook 'js-mode-hook (lambda () (tern-mode t)))
 (add-hook 'js2-mode-hook (lambda () (tern-mode t)))
+(add-to-list 'company-backends 'company-tern)
+(add-hook 'js-jsx-mode-hook (lambda ()
+                           (tern-mode)
+                           (company-mode)))
 (use-package emmet-mode
   :ensure t
   :config
