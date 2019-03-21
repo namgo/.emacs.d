@@ -8,11 +8,12 @@
 (setq scroll-conservatively 10000
 scroll-preserve-screen-position 1)
 
-(use-package ace-window
-  :ensure t
-  :bind ("C-," . ace-select-window)
-  ("C-<" . ace-delete-window)
-)
-(use-package color-theme-solarized
-  :config (color-theme-solarized))
+;; (use-package ace-window
+;;   :ensure t
+;;   :bind ("C-," . ace-select-window)
+;;   ("C-<" . ace-delete-window)
+;; )
+(load-theme 'solarized-dark)
+;; (use-package color-theme-solarized
+;;   :config (color-theme-solarized))
 (provide 'init-ui)
