@@ -4,8 +4,8 @@
 	     (yas-global-mode 1))
 (use-package company
 	     :init
-	     (setq company-global-modes '(not cider-repl-mode))
-	     ;;(global-company-mode 1)
+	     (setq company-global-modes '(not cider-repl-mode eshell-mode))
+	     (global-company-mode 1)
 	     :config
 	     (setq company-dabbrev-downcase 0)
 	     (setq company-idle-delay 0))

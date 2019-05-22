@@ -8,6 +8,9 @@
 ;;   :init
 ;;   (add-hook 'python-mode-hook 'python-docstring-mode))
 
+(use-package pippel
+  :ensure t)
+
 (use-package virtualenvwrapper
   :ensure t
   :init (setq venv-location "~/.virtualenvs/")
