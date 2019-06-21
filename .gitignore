@@ -1,0 +1,7 @@
+anaconda-mode
+auto-save-list/
+custom.el
+elpa/
+helm-adaptive-history
+recentf
+transient/

@@ -5,7 +5,7 @@
 (define-key org-mode-map "\M-q" 'toggle-truncate-lines)
 (use-package org
   :config
-  (setq org-agenda-files '("~/todo.org"))
+  (setq org-agenda-files '("~/sync/todo.org"))
   :bind (("C-c a" . org-agenda)
 	 ("M-q" . toggle-truncate-lines))
   )
