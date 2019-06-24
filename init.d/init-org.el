@@ -5,7 +5,7 @@
   :config
   (setq org-log-done 'time)
   (setq org-startup-indented t)
-  (setq org-agenda-files '("~/sync/work.org" "~/sync/personal.org"))
+  (setq org-agenda-files (list "~/Documents/org"))
   :bind (("C-c a" . org-agenda)
 	 ("M-q" . toggle-truncate-lines))
   )
