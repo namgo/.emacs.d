@@ -1,4 +1,3 @@
-
 (use-package yasnippet
 	     :init
 	     (yas-global-mode 1))
@@ -13,19 +12,10 @@
   :config (company-quickhelp-mode 1))
 (use-package company-irony)
 (use-package irony)
-;; (use-package company-c-headers
-;;   :init
-;;   (add-to-list 'company-backends 'company-c-headers))
-;;(electric-pair-mode)
 
-;; (use-package company-tern
-;;   :init
-;;   (add-to-list 'company-backends 'company-tern)
-;;   (setq company-tooltip-align-annotations t)
-;;   )
-
-;; (use-package company-ansible
-;;   :init
-;;   (add-to-list 'company-backends 'company-ansible))
+(use-package company-tern
+  :init
+  (add-to-list 'company-backends 'company-tern)
+  (setq company-tooltip-align-annotations t))
 
 (provide 'init-completion)
