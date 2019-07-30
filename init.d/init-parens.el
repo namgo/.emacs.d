@@ -1,5 +1,7 @@
-(use-package smartparens)
+(use-package smartparens
+  :ensure t)
 (use-package rainbow-delimiters
+  :ensure t
   :hook
   (
    (lispy-mode . rainbow-delimiters-mode)

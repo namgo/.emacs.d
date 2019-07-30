@@ -1,4 +1,5 @@
 (use-package evil
+  :ensure t
   :config
   (evil-mode 1)
   (evil-set-initial-state 'eshell-mode 'emacs)
@@ -11,6 +12,7 @@
 ;; for modes
 ;; r is the leading map for repl managers/evaluators
 (use-package evil-leader
+  :ensure t
   :init
   (global-evil-leader-mode 1)
   :config
@@ -34,6 +36,7 @@
   (evil-leader/set-key-for-mode 'python-mode "pc" 'venv-create)
   )
 (use-package evil-surround
+  :ensure t
   :init
   ;; (global-evil-surround-mode 1)
   )

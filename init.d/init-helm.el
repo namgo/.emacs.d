@@ -13,5 +13,6 @@
    ("C-x C-f" . helm-find-files)
    ("M-y" . helm-show-kill-ring)))
 
-(use-package helm-ag)
+(use-package helm-ag
+  :ensure t)
 (provide 'init-helm)
