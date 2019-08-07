@@ -20,10 +20,7 @@
   :ensure t
   :after (company anaconda-mode)
   :config
-  (add-to-list 'company-backends 'company-anaconda)
-  ;; (eval-after-load "company"
-  ;;   '(add-to-list 'company-backends '(company-anaconda :with company-capf)))
-  )
+  (add-hook 'anaconda-mode-hook (lambda () (add-to-list 'company-backends 'company-anaconda))))
 
 (use-package anaconda-mode
   :ensure t

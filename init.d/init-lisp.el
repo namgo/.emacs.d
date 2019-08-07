@@ -1,10 +1,10 @@
 (use-package lispy
   :ensure t
-  :after (lispyville)
+  :init (add-hook 'emacs-lisp-mode-hook 'lispy-mode)
   :hook (lispyville-mode)
   :config
-  (setq lispy-close-quotes-at-end-p t)
-  (add-hook 'emacs-lisp-mode-hook 'lispy-mode))
+  (setq lispy-close-quotes-at-end-p t))
+
 (use-package lispyville
   :ensure t
   :config

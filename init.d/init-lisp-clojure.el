@@ -15,8 +15,6 @@
   (interactive)
   (cider-repl-set-ns "user"))
 
-(defun namgo/cider-add-company-backend ()
-  (add-to-list 'company-backends '(company-cider)))
 
 (defun namgo/cider-set-repl ()
   (setq inferior-lisp-program "lein repl")
@@ -35,7 +33,14 @@
   :config
   ;; NOTE: these key maps are not actually used that often
   ;; maybe switch them?
-  :hook (lispy-mode cider-mode namgo/cider-add-company-backend namgo/cider-set-repl))
+  (add-hook 'clojure-mode-hook
+	    (lambda ()
+	      (add-to-list 'company-backends 'company-cider)
+	      (lispy-mode t)
+	      (cider-mode t)
+	      (namgo/cider-add-company-backend)
+	      (namgo/cider-set-repl)
+	      )))
 
 
 (use-package cider
