@@ -2,8 +2,8 @@
 (setq package-archives '(("melpa-stable" . "https://stable.melpa.org/packages/")
 			 ("melpa" . "https://melpa.org/packages/")
 			 ("org" . "https://orgmode.org/elpa/")
-			 ("gnu" . "https://elpa.gnu.org/packages/")
-			 ("elpy" . "https://jorgenschaefer.github.io/packages/")))
+			 ("gnu" . "https://elpa.gnu.org/packages/")))
+
 
 (package-initialize)
 
@@ -254,8 +254,7 @@
   (setq cider-repl-wrap-history t)
 
   ;; enable paredit in your REPL
-  (add-hook 'cider-repl-mode-hook 'lispyville-mode)
-
+  
   ;; Use clojure mode for other extensions
   (add-to-list 'auto-mode-alist '("\\.edn$" . clojure-mode))
   (add-to-list 'auto-mode-alist '("\\.boot$" . clojure-mode))
@@ -266,34 +265,35 @@
 (use-package lispy
   :ensure t
   :init (add-hook 'emacs-lisp-mode-hook 'lispy-mode)
-  :hook (lispyville-mode)
   :config
   (setq lispy-close-quotes-at-end-p t))
 
-(use-package lispyville
-  :ensure t
-  :config
-  :bind (:map lispyville-mode-map ("M-(" . lispyville-wrap-round)
-	 ("M-[" . lispyville-wrap-brackets)
-	 ("M-{" . lispyville-wrap-braces)))
 
 
 
 (use-package org
   :config
   (setq org-todo-keywords
-      '((sequence "TODO(t)" "WAIT(w@/!)" "|" "DONE(d!)" "CANCELED(c@)")))
+	'((sequence "TODO(t)" "WAIT(w@/!)" "|" "DONE(d!)" "CANCELED(c@)")))
   (setq org-log-done 'time)
   (setq org-startup-indented t)
   (setq org-agenda-files (list "~/Documents/org"))
+  (setq org-default-notes-file "~/Documents/org/journal.org.gpg")
+  (setq org-capture-templates
+      '(("t" "Todo" entry (file+headline "~/Documents/org/tasks.org.gpg" "Tasks")
+         "* TODO %?\n  %i\n")
+        ("j" "Journal" entry (file+datetree "~/Documents/org/journal.org.gpg")
+         "* %?\nEntered on %U\n  %i\n")))
   (org-babel-do-load-languages
    'org-babel-load-languages
    '((python . t)))
   :bind (("C-c a" . org-agenda)
+	 ("C-c o" . org-capture)
 	 (:map org-mode-map
-	  ("M-q" . toggle-truncate-lines))))
+	       ("M-q" . toggle-truncate-lines))))
 
-
+(use-package undo-tree
+  :init (global-undo-tree-mode t))
 (use-package smartparens
   :ensure t)
 (use-package rainbow-delimiters
@@ -392,17 +392,17 @@
   (add-to-list 'auto-mode-alist '("\\.js\\'" . js2-mode))
   (add-to-list 'auto-mode-alist '("\\.mjs\\'" . js2-mode))
   (add-hook 'js2-mode-hook 'npm-mode)
-  (add-to-list 'company-backends 'company-tern)
+;  (add-to-list 'company-backends 'company-tern)
   :bind
   (:map js2-mode-map ("C-c m" . mdn-search)))
 
 (use-package tern
   :ensure t)
 
-(use-package company-tern
-  :ensure t
-  :init
-  (setq company-tooltip-align-annotations t))
+;; (use-package company-tern
+;;   :ensure t
+;;   :init
+;;   (setq company-tooltip-align-annotations t))
 
 (use-package npm-mode
   :ensure t)
@@ -412,6 +412,9 @@
   (setq indium-chrome-executable "chromium-browser"))
 ;; add key bindings
 ;; (add-hook 'indium-client-connected-hook 'indium-interaction-mode)
+
+(use-package epa-file
+  :init (epa-file-enable))
 
 (defun js-method-p ()
   (save-excursion
